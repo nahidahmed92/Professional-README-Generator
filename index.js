@@ -55,7 +55,17 @@ const questions = [
     type: 'input',
     name: 'license',
     message: 'What are the steps required to install your project?',
-    choices: [],
+    choices: [
+      'Apache',
+      'Cloud Native Computing Foundation',
+      'GNU',
+      'MIT',
+      'ISC',
+      'OpenBSD',
+      'Rust',
+      'Wordpress',
+      'Joomla',
+    ],
   },
   {
     type: 'input',
