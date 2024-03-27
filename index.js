@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -8,12 +9,6 @@ const questions = [
     type: 'input',
     name: 'title',
     message: 'What is the title of your project?',
-  },
-  {
-    type: 'input',
-    name: 'desc',
-    message: 'Provide a short description',
-    choices: ['Yes', 'No'],
   },
   {
     type: 'input',
@@ -35,12 +30,17 @@ const questions = [
     name: 'descLearn',
     message: 'What did you learn?',
   },
-  {
-    type: 'input',
-    name: 'toc',
-    message: 'Enter table of content',
-    choices: ['Yes', 'No'], // how to ask for more and when no go to next question   // [Installation](#installation)
-  },
+  // {
+  //   type: 'input',
+  //   name: 'tocQuestion',
+  //   message: 'Enter table of content',
+  // },
+  // {
+  //   type: 'checkbox',
+  //   name: 'toc',
+  //   message: 'Do you have the following items?',
+  //   choices: ['Description', 'Installation', 'Usage', 'License', 'Contribute', 'Test'], // how to ask for more and when no go to next question   // [Installation](#installation)
+  // },
   {
     type: 'input',
     name: 'install',
@@ -49,23 +49,13 @@ const questions = [
   {
     type: 'input',
     name: 'usage',
-    message: 'Provide instructions and examples for use',
+    message: 'What use does this project have?',
   },
   {
     type: 'list',
     name: 'license',
     message: 'Choose a license',
-    choices: [
-      'Apache',
-      'Cloud Native Computing Foundation',
-      'GNU',
-      'MIT',
-      'ISC',
-      'OpenBSD',
-      'Rust',
-      'Wordpress',
-      'Joomla',
-    ],
+    choices: ['Apache', 'GNU', 'MIT', 'ISC', 'OpenBSD', 'Joomla'],
   },
   {
     type: 'input',
@@ -77,19 +67,18 @@ const questions = [
     name: 'test',
     message: 'How can others test your application.', // test maybe add a question if theyd like to write a test section
   },
+  {
+    type: 'input',
+    name: 'questionGitHub',
+    message: 'What is your github username?',
+  },
 ];
 
 console.log('question: ', questions[0]);
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-  fs.writeFile(
-    fileName,
-    `
-  # ${data.title}
-  `,
-    (error) => (error ? console.error(error) : console.log(data))
-  );
+  fs.writeFile(fileName, data, (error) => (error ? console.error(error) : console.log(data)));
 }
 
 // TODO: Create a function to initialize app
@@ -99,7 +88,7 @@ function init() {
       console.log('Title required to continue');
       return;
     }
-    writeToFile('README.md', response);
+    writeToFile('README.md', generateMarkdown(response));
   });
 }
 
