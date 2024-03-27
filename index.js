@@ -52,9 +52,9 @@ const questions = [
     message: 'Provide instructions and examples for use',
   },
   {
-    type: 'input',
+    type: 'list',
     name: 'license',
-    message: 'What are the steps required to install your project?',
+    message: 'Choose a license',
     choices: [
       'Apache',
       'Cloud Native Computing Foundation',
@@ -80,10 +80,12 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer.prompt(questions).then((response) => console.log(response));
+}
 
 // Function call to initialize app
 init();
