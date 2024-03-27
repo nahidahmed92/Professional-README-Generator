@@ -79,12 +79,28 @@ const questions = [
   },
 ];
 
+console.log('question: ', questions[0]);
+
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  fs.writeFile(
+    fileName,
+    `
+  # ${data.title}
+  `,
+    (error) => (error ? console.error(error) : console.log(data))
+  );
+}
 
 // TODO: Create a function to initialize app
 function init() {
-  inquirer.prompt(questions).then((response) => console.log(response));
+  inquirer.prompt(questions).then((response) => {
+    if (response.title === '') {
+      console.log('Title required to continue');
+      return;
+    }
+    writeToFile('README.md', response);
+  });
 }
 
 // Function call to initialize app
