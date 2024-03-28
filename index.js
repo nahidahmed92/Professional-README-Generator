@@ -30,17 +30,6 @@ const questions = [
     name: 'descLearn',
     message: 'What did you learn?',
   },
-  // {
-  //   type: 'input',
-  //   name: 'tocQuestion',
-  //   message: 'Enter table of content',
-  // },
-  // {
-  //   type: 'checkbox',
-  //   name: 'toc',
-  //   message: 'Do you have the following items?',
-  //   choices: ['Description', 'Installation', 'Usage', 'License', 'Contribute', 'Test'], // how to ask for more and when no go to next question   // [Installation](#installation)
-  // },
   {
     type: 'input',
     name: 'install',
@@ -55,7 +44,7 @@ const questions = [
     type: 'list',
     name: 'license',
     message: 'Choose a license',
-    choices: ['Apache', 'GNU', 'MIT', 'ISC', 'OpenBSD', 'Joomla'],
+    choices: ['Apache', 'GNU', 'MIT', 'ISC', 'OpenBSD', 'None'],
   },
   {
     type: 'input',
@@ -78,8 +67,6 @@ const questions = [
     message: 'What is your email address?',
   },
 ];
-
-console.log('question: ', questions[0]);
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
