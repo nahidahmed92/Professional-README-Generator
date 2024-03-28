@@ -1,8 +1,7 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Function returns a license badge based on which license is passed by user input
 function renderLicenseBadge(license) {
   const licenseBadges = {
-    Apache: '[![Apache Badge]](https://img.shields.io/pypi/l/giteo)',
+    Apache: '![Apache Badge](https://img.shields.io/pypi/l/giteo)',
     GNU: '![GNU Badge](https://img.shields.io/badge/license-GPLv3-blue)',
     MIT: '![MIT Badge](https://img.shields.io/badge/license-MIT-blue)',
     ISC: '![ISC Badge](https://img.shields.io/pypi/l/xpanse)',
@@ -12,8 +11,7 @@ function renderLicenseBadge(license) {
   return licenseBadges[license];
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+// Function returns the license link
 function renderLicenseLink(license) {
   const licenseLinks = {
     Apache: '[Apache](https://www.apache.org/licenses/LICENSE-2.0)',
@@ -26,8 +24,7 @@ function renderLicenseLink(license) {
   return licenseLinks[license];
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// Function returns the license section of README
 function renderLicenseSection(license) {
   const licenseSections = {
     Apache: 'Apache License Version 2.0, January 2004',
@@ -40,7 +37,7 @@ function renderLicenseSection(license) {
   return licenseSections[license];
 }
 
-// TODO: Create a function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
 
