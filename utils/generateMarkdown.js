@@ -81,6 +81,7 @@ function generateMarkdown(data) {
   ## Questions
 
   [GitHub](https://github.com/${data.questionGitHub})
+
   [Email](mailto:${data.questionEmail})
 `;
 }
